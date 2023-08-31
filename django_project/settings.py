@@ -28,9 +28,11 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "debug_toolbar",
+    'rest_framework',
     # Local
     "accounts",
     "pages",
+    'webhook_app',
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
@@ -75,6 +77,16 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
+}
+# Define your API settings, such as authentication and permissions
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
 
 # For Docker/PostgreSQL usage uncomment this and comment the DATABASES config above
