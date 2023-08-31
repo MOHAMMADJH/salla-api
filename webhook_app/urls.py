@@ -7,7 +7,7 @@ router = routers.DefaultRouter()
 router.register(r'webhooks', WebhookViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # Include the router URLs
     # path('webhooks/', include('webhook_app.urls')),  # Include webhook URLs
 ]
